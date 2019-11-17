@@ -1,56 +1,72 @@
 
 class Produto {
-    private String marca = "";
-    private String produto;
-    private Double peso;
-    private Double valorNota;
+    private String nome;
+    private Categoria categoria;
+    private Valor valor;
     private Local local;
+    private UnidadeMedida unidadeMedida;
+    Fornecedor fornecedor = new Fornecedor();
+    private String Marca;
+
+  
 
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
+    public String getNome() {
+        return nome;
+    }
 
-
-
-
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getMarca() {
-        return marca;
+        return Marca;
     }
+
+    public void setMarca(String marca) {
+        this.Marca = marca;
+    }
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+
+    public UnidadeMedida getUnidadeMedida() {
+        return unidadeMedida;
+    }
+
+    public void setUnidadeMedida(UnidadeMedida unidadeMedida) {
+        this.unidadeMedida = unidadeMedida;
+    }
+
     public Local getLocal() {
         return local;
     }
 
-    public void setLocal(Local local2) {
-        this.local = local2;
+    public void setLocal(Local local) {
+        this.local = local;
     }
 
-    public Double getValorNota() {
-        return valorNota;
+    public Valor getValor() {
+        return valor;
     }
 
-    public void setValorNota(Double valorNota) {
-        this.valorNota = valorNota;
+    public void setValor(Valor valor) {
+        this.valor = valor;
     }
 
-    public Double getPeso() {
-        return peso;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public void setPeso(Double peso) {
-        this.peso = peso;
-    }
-
-    public String getProduto() {
-        return produto;
-    }
-
-    public void setProduto(String produto) {
-        this.produto = produto;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
 
 
 

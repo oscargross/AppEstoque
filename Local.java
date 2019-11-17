@@ -17,8 +17,4 @@ class Local {
     public void setPrateleira(String prateleira) {
         this.Prateleira = prateleira;
     }
-
-
-
-
 }

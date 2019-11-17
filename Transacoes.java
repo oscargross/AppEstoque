@@ -5,13 +5,12 @@ class Transacoes {
     private int quantidadePerda;
 
     
-    public void entradaProduto(String nomeProduto, String marca, Double peso, Double valorNota, String prateleira, String Departamento, String dataChegada, String dataSaida, int quantidade, int quantidadePerda) {
+    public void entradaProduto(String nomeProduto, String marca, Double peso, Double valorNota, String prateleira, String departamento, String dataChegada, int quantidade, int quantidadePerda) {
         conferirProdutoEstoque(nomeProduto, marca);
 
         Produto produto = new Produto();
         Local local = new Local();
         Conferencia historico = new Conferencia();
-
         
         local.setDepartamento(departamento);
         local.setPrateleira(prateleira);
@@ -21,30 +20,24 @@ class Transacoes {
         produto.setValorNota(valorNota);
         produto.setLocal(local);
         historico.setDataChegada(dataChegada);
-        historico.setDataSaida(dataSaida);
 
         acrescentarQuantidade(produto, quantidade);        
         historico.movimentacao(produto);
        
     }
 
+
     public void conferirProdutoEstoque(String nomeProduto, String marca){
          
-
-
-
     }
-
-
 
 
     public void acrescentarQuantidade(Produto produto, int quantidade){
         this.quantidadeEstoque+=quantidade;
     }
-
-
-
-
+    public void diminuirQuantidade(Produto produto, int quantidade){
+        this.quantidadeEstoque-=quantidade;
+    }
 
 
     public int getQuantidadeEstoque() {
@@ -70,10 +63,4 @@ class Transacoes {
     public void setQuantidadeEstoque(int quantidadeEstoque) {
         this.quantidadeEstoque = quantidadeEstoque;
     }
-
-    
-
-
-
-
 }

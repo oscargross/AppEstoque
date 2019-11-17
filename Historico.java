@@ -1,17 +1,18 @@
+import java.util.ArrayList;
+
 class Conferencia{
     private String dataChegada;
     private String dataSaida;
     public ArrayList<Produto> historicoChegadaESaida = new ArrayList<Produto>();
+
+    
     
     public void movimentacao(Produto produto){
         historicoChegadaESaida.add(produto);
     }
 
-
-
-
     public String getDataSaida() {
-        return dataSaida;
+        return dataSaida;  
     }
 
     public void setDataSaida(String dataSaida) {
