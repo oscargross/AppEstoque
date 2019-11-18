@@ -21,9 +21,12 @@ class Main {
     public static void main(String[] args) {
 
         Cadastro cadastro = new Cadastro();
-        cadastro.setNomeArquivo("step1.txt");
+        Categoria categoria = new Categoria();
         cadastro.cadastroFornecedor();
-        cadastro.lerDados();
+        //cadastro.listaFornecedores();
+        //cadastro.cadastrarProduto();
+        String nome = "a";
+        categoria.cadastrarCategoria(nome);
 
 
 

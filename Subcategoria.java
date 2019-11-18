@@ -3,9 +3,34 @@ import java.util.ArrayList;
 class Subcategoria {
     private String modeloItem;
     private ArrayList<String> listaSubcategorias = new ArrayList();
+    private String nome;
+
+    public void cadastrarSubcategoria(String nome){
+        this.nome.setNome(nome);
+        listaSubcategorias.add(subcategoria);
+    }
+
 
     
+    public void listaCategorias(){
+        for (Categoria a : listaCategorias){
+            System.out.println(a.getNome());
+        }
+    }
+
+
+
+
+
+
+
     
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getNome() {
+        return nome;
+    }
     
     
     

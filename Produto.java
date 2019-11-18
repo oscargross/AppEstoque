@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 class Produto {
     private String nome;
@@ -8,7 +9,15 @@ class Produto {
     Fornecedor fornecedor = new Fornecedor();
     private String Marca;
 
-  
+
+
+    public void cadastrarCategoria(){
+
+        Categoria categoria;
+        
+
+
+    }
 
 
     public Categoria getCategoria() {
