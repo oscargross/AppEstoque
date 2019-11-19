@@ -8,10 +8,10 @@ class Valor {
 
 
 
-    public void novoValor(Double valorEntrada, Double taxaGanho){
-        this.valorEntrada = valorEntrada;
-        this.taxaGanho = taxaGanho;
+    public Double novoValor(){
+       
         this.valorSaida = this.valorEntrada * this.taxaGanho;
+        return valorSaida;
     }
 
 

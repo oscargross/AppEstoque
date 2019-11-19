@@ -11,24 +11,39 @@ class Cadastro{
     Categoria acessoCategoria = new Categoria();
     Local local = new Local();
     UnidadeMedida unidade = new UnidadeMedida();
-    Valor valor = new Valor();
 
 
     ArrayList<Fornecedor> listaFornecedores = new ArrayList<Fornecedor>();
     ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 
+    public void cadastrarProduto(String nome, double valorEntrada, String marca, Double taxa) {
+        Produto produto = new Produto();
+        produto.setNome(nome);
+        produto.setMarca(marca);
+        produto.setValor(cadastrarValores(taxa , valorEntrada));
+        listaProdutos.add(produto);
+        System.out.println("Produto cadastrado com sucesso");
+
+	}
+
     public void adicionarDepartamento(String novoDepartamente){
         local.adicionarDepartamento(novoDepartamente);
     }
+    
     public void adicionarPrateleira(String novaPrateleira){
         local.adicionarPrateleira(novaPrateleira);
     }
+    
     public void adicionarUnidade(String novaUnidade){
         unidade.adicionarUnidade(novaUnidade);
     }
 
-    public void cadastrarValores(){
-
+    public Valor cadastrarValores(Double taxa, Double valorEntrada){
+        Valor valor = new Valor();
+        valor.setTaxaGanho(taxa);
+        valor.setValorEntrada(valorEntrada);
+        valor.setValorSaida(valor.novoValor());
+        return valor;
     }
 
     Cadastro(){
@@ -121,6 +136,7 @@ class Cadastro{
             i++;
         }
     }
+    
     public void cadastroFornecedor(String nome, String cnpj, String cidade){
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setNome(nome);
@@ -128,6 +144,7 @@ class Cadastro{
         fornecedor.setCidade(cidade);
         listaFornecedores.add(fornecedor);        
     }
+    
     public void cadastroFornecedor2(){
         final String texto1=("nome do Fornecedor");
         final String texto2=("CNPJ do Fornecedor");
@@ -158,7 +175,6 @@ class Cadastro{
         }
     }
     
-    
     public void cadastrarProduto(){
         final String texto4=("nome do produto");
         final String texto5=("valor de entrada");
@@ -184,6 +200,7 @@ class Cadastro{
 
 
     }
+    
     public String testeAtribuicaoCorreta(String textoAtribuicao){
         String info;
         while (true){
@@ -198,8 +215,8 @@ class Cadastro{
         return info;        
     }
 
-	
-
-	
+	public void cadastrarProduto(String string, double d, String string2, double e) {
+	}
+		
 }
     

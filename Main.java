@@ -19,6 +19,7 @@ import java.util.Scanner;
 */
 class Main {
     public static void main(String[] args) {
+        Transacoes transacoes = new Transacoes();
 
         Cadastro cadastro = new Cadastro();
         
@@ -64,15 +65,14 @@ class Main {
         Categoria categoria = cadastro.escolherCategorias(); 
         Subcategoria subcategoria = cadastro.escolherSubcategorias(categoria);
 
+
         cadastro.cadastroFornecedor2();
         cadastro.listaFornecedores();
 
-
-        cadastro.listaFornecedores();
-        cadastro.listarSubcategorias();
         
-
-        cadastro.cadastrarProduto("Cola 2L", );
+                                //  Nome - valor de compra - taxa de ganho
+        cadastro.cadastrarProduto("Cola 2L", 2.5 , "Coca Cola", 0.4);
+        
 
 
 
