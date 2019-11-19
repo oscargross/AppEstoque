@@ -21,7 +21,7 @@ class Main {
     public static void main(String[] args) {
 
         Cadastro cadastro = new Cadastro();
-        Categoria categoria = new Categoria();
+        //Categoria categoria = new Categoria();
         cadastro.cadastroFornecedor();
         //cadastro.listaFornecedores();
         //cadastro.cadastrarProduto();
@@ -30,6 +30,24 @@ class Main {
 
 
 
+        categoria.listaCategorias().add(subcategoria);
 
+        Categoria categoria1 = cadastro.cadastrarCategoria("Bebidas");
+        Categoria categoria2 = cadastro.cadastrarCategoria("Enlatados");
+        Categoria categoria3 = cadastro.cadastrarCategoria("Embutidos");
+
+        cadastro.cadastrarSubcategoria("Refrigerante", categoria1);
+        cadastro.cadastrarSubcategoria("Vodca", categoria1);
+        cadastro.cadastrarSubcategoria("Vinho", categoria1);
+        
+        cadastro.cadastrarSubcategoria("Milho", categoria2);
+        cadastro.cadastrarSubcategoria("Ervilha", categoria2);
+        cadastro.cadastrarSubcategoria("Sardinha", categoria2);
+
+        cadastro.cadastrarSubcategoria("Salame", categoria3);
+        cadastro.cadastrarSubcategoria("Vodcas", categoria3);
+        cadastro.cadastrarSubcategoria("Vinhos", categoria3);
+
+        cadastro.cadastrarProduto();
     }
 }

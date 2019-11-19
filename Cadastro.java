@@ -12,6 +12,7 @@ import java.util.Scanner;
 class Cadastro{ 
     Scanner scan = new Scanner(System.in);
     ControleCadastro controle = new ControleCadastro();
+    Categoria acessoCategoria;
 
     ArrayList<Fornecedor> listaFornecedores = new ArrayList<Fornecedor>();
     ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
@@ -20,9 +21,29 @@ class Cadastro{
     Cadastro(){
     }
 
+    public void cadastrarCategoria(String nome) {
+	    Categoria categoria = new Categoria();
+        categoria.setNome(nome);
+        listaCategorias.add(categoria);
+    }
+
+    public void cadastrarSubcategoria(String nome, Categoria categoria1) {
+	    Subcategoria subcategoria = new Subcategoria();
+        subcategoria.setNome(nome);
+        categoria1.adicionarListaSub(subcategoria);
+    }
+
+    public void listarCategorias(){
+        for(int i =0; i< acessoCategoria.getListaCategorias().lenght() ; i++){
+            System.out.println((i+1) + " - "+acessoCategoria.getListaCategorias().getNome(i));
+        }
+        System.out.println("Digite o valor correspondente a categoria desejada");
+        
+    }
+
     public void listaFornecedores(){
         for (Fornecedor a : this.listaFornecedores){
-            System.out.println("Nome: "+a.getNome()+"/rCidade: "+a.getCidade()+"/rCNPJ: "+a.getCnpj()+"/n");
+            System.out.println("Nome: "+a.getNome()+"\rCidade: "+a.getCidade()+"\rCNPJ: "+a.getCnpj()+"/n");
         }
     }
     public void cadastroFornecedor(String nome, String cnpj, String cidade){
@@ -30,10 +51,7 @@ class Cadastro{
         fornecedor.setNome(nome);
         fornecedor.setCnpj(cnpj);
         fornecedor.setCidade(cidade);
-        this.listaFornecedores.add(fornecedor);
-        System.out.println("Fornecedor adicionado com sucesso!");
-
-        
+        listaFornecedores.add(fornecedor);        
     }
     public void cadastroFornecedor(){
         final String texto1=("nome do Fornecedor");
@@ -54,6 +72,8 @@ class Cadastro{
                         if (x==0){ 
 
                             cadastroFornecedor(testeNomeFor, testeCnpjFor, testeCidadeFor);
+                            System.out.println("Fornecedor adicionado com sucesso!");
+
                         }
                     }
                 }
@@ -82,9 +102,10 @@ class Cadastro{
             String marca = (testeAtribuicaoCorreta(texto6));            
             x++;
         }
-        Produto produto = new Produto();
-        produto.cadastrarCategoria();
     }
+
+
+
     public String testeAtribuicaoCorreta(String textoAtribuicao){
         String info;
         while (true){
@@ -98,5 +119,9 @@ class Cadastro{
         }     
         return info;        
     }
+
+	
+
+	
 }
     
