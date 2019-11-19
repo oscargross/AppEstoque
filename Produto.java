@@ -10,16 +10,6 @@ class Produto {
     private String Marca;
 
 
-
-    public void cadastrarCategoria(){
-
-        Categoria categoria;
-        
-
-
-    }
-
-
     public Categoria getCategoria() {
         return categoria;
     }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Conferencia{
+class Historico{
     private String dataChegada;
     private String dataSaida;
     public ArrayList<Produto> historicoChegadaESaida = new ArrayList<Produto>();

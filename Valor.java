@@ -3,6 +3,18 @@ class Valor {
     private Double valorSaida;
     private Double taxaGanho;
 
+
+
+
+
+
+    public void novoValor(Double valorEntrada, Double taxaGanho){
+        this.valorEntrada = valorEntrada;
+        this.taxaGanho = taxaGanho;
+        this.valorSaida = this.valorEntrada * this.taxaGanho;
+    }
+
+
     public Double getValorEntrada() {
         return valorEntrada;
     }

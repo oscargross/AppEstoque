@@ -1,20 +1,28 @@
+import java.util.ArrayList;
+
 class Local {
-    private String Prateleira;
-    private String Departamento;
+    private ArrayList<String> listaPrateleiras = new ArrayList();
+    private ArrayList<String> listaDepartamentos = new ArrayList();
 
-    public String getPrateleira() {
-        return Prateleira;
+    public void adicionarDepartamento(String novoDepartamente) {
+        listaDepartamentos.add(novoDepartamente);
+    }
+    public void adicionarPrateleira(String novaPrateleira) {
+        listaPrateleiras.add(novaPrateleira);
+    }
+    public ArrayList<String> getListaPrateleiras() {
+        return listaPrateleiras;
     }
 
-    public String getDepartamento() {
-        return Departamento;
+    public void setListaPrateleiras(ArrayList<String> listaPrateleiras) {
+        this.listaPrateleiras = listaPrateleiras;
     }
 
-    public void setDepartamento(String departamento) {
-        this.Departamento = departamento;
+    public ArrayList<String> getListaDepartamentos() {
+        return listaDepartamentos;
     }
 
-    public void setPrateleira(String prateleira) {
-        this.Prateleira = prateleira;
+    public void setListaDepartamentos(ArrayList<String> listaDepartamentos) {
+        this.listaDepartamentos = listaDepartamentos;
     }
 }

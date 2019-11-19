@@ -21,20 +21,30 @@ class Main {
     public static void main(String[] args) {
 
         Cadastro cadastro = new Cadastro();
-        //Categoria categoria = new Categoria();
-        cadastro.cadastroFornecedor();
-        //cadastro.listaFornecedores();
-        //cadastro.cadastrarProduto();
-        String nome = "a";
-        categoria.cadastrarCategoria(nome);
+        
+
+        cadastro.cadastroFornecedor("Alimentos SA", "00 000 000/0001-00", "Passo Fundo");
+        cadastro.cadastroFornecedor("Sadia", "11 111 111/0001-11", "POA");
+        cadastro.adicionarDepartamento("Refrigeradores -5C");
+        cadastro.adicionarDepartamento("Refrigeradores -10");
+        cadastro.adicionarDepartamento("Refrigeradores 0C");
+        cadastro.adicionarPrateleira("A1");
+        cadastro.adicionarPrateleira("A2");
+        cadastro.adicionarPrateleira("B1");
+        cadastro.adicionarPrateleira("B2");
+        cadastro.adicionarPrateleira("B3");
+        cadastro.adicionarPrateleira("B4");
+        cadastro.adicionarPrateleira("C1");
+        cadastro.adicionarUnidade("Kg");
+        cadastro.adicionarUnidade("g");
+        cadastro.adicionarUnidade("ml");
+        cadastro.adicionarUnidade("L");
 
 
 
-        categoria.listaCategorias().add(subcategoria);
-
-        Categoria categoria1 = cadastro.cadastrarCategoria("Bebidas");
-        Categoria categoria2 = cadastro.cadastrarCategoria("Enlatados");
-        Categoria categoria3 = cadastro.cadastrarCategoria("Embutidos");
+        Categoria categoria1 = cadastro.cadastrarCategoria ("Bebidas");
+        Categoria categoria2 = cadastro.cadastrarCategoria ("Enlatados");
+        Categoria categoria3 = cadastro.cadastrarCategoria ("Embutidos");
 
         cadastro.cadastrarSubcategoria("Refrigerante", categoria1);
         cadastro.cadastrarSubcategoria("Vodca", categoria1);
@@ -47,7 +57,26 @@ class Main {
         cadastro.cadastrarSubcategoria("Salame", categoria3);
         cadastro.cadastrarSubcategoria("Vodcas", categoria3);
         cadastro.cadastrarSubcategoria("Vinhos", categoria3);
+        cadastro.listarCategorias();
+        cadastro.listarSubcategorias();
 
-        cadastro.cadastrarProduto();
+
+        Categoria categoria = cadastro.escolherCategorias(); 
+        Subcategoria subcategoria = cadastro.escolherSubcategorias(categoria);
+
+        cadastro.cadastroFornecedor2();
+        cadastro.listaFornecedores();
+
+
+        cadastro.listaFornecedores();
+        cadastro.listarSubcategorias();
+        
+
+        cadastro.cadastrarProduto("Cola 2L", );
+
+
+
+
+
     }
 }

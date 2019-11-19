@@ -1,49 +1,124 @@
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-    
 class Cadastro{ 
     Scanner scan = new Scanner(System.in);
     ControleCadastro controle = new ControleCadastro();
-    Categoria acessoCategoria;
+    Categoria acessoCategoria = new Categoria();
+    Local local = new Local();
+    UnidadeMedida unidade = new UnidadeMedida();
+    Valor valor = new Valor();
+
 
     ArrayList<Fornecedor> listaFornecedores = new ArrayList<Fornecedor>();
     ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 
-    
+    public void adicionarDepartamento(String novoDepartamente){
+        local.adicionarDepartamento(novoDepartamente);
+    }
+    public void adicionarPrateleira(String novaPrateleira){
+        local.adicionarPrateleira(novaPrateleira);
+    }
+    public void adicionarUnidade(String novaUnidade){
+        unidade.adicionarUnidade(novaUnidade);
+    }
+
+    public void cadastrarValores(){
+
+    }
+
     Cadastro(){
     }
 
-    public void cadastrarCategoria(String nome) {
+    public void listarSubcategorias(){
+        int j = acessoCategoria.listaSubcategorias.size();
+        for(int i =0; i< j ; i++){
+            System.out.println((i+1) + " - "+acessoCategoria.listaSubcategorias.get(i).getNome());
+        }
+
+    }
+
+    public void listarCategorias(){
+        int j = acessoCategoria.listaCategorias.size();
+        for(int i =0; i< j ; i++){
+            System.out.println((i+1) + " - "+acessoCategoria.listaCategorias.get(i).getNome());
+        }
+        //System.out.println(j);
+        //System.out.println(acessoCategoria.listaCategorias.getNome());
+
+
+    }
+
+    public Categoria cadastrarCategoria(String nome) {
 	    Categoria categoria = new Categoria();
         categoria.setNome(nome);
-        listaCategorias.add(categoria);
+        acessoCategoria.adicionarListaCategorias(categoria); 
+        System.out.println(nome);
+        int i = 0;
+
+        System.out.println(acessoCategoria.listaCategorias.get(i).getNome());
+        i++;
+        return categoria;
     }
 
     public void cadastrarSubcategoria(String nome, Categoria categoria1) {
 	    Subcategoria subcategoria = new Subcategoria();
         subcategoria.setNome(nome);
-        categoria1.adicionarListaSub(subcategoria);
+        acessoCategoria.adicionarListaSub(subcategoria);
     }
 
-    public void listarCategorias(){
-        for(int i =0; i< acessoCategoria.getListaCategorias().lenght() ; i++){
-            System.out.println((i+1) + " - "+acessoCategoria.getListaCategorias().getNome(i));
+    public Categoria escolherCategorias(){
+        int j = acessoCategoria.listaCategorias.size();
+        int opcao=0;
+        while(true){
+                
+            try {
+                listarCategorias();
+                System.out.println("Digite o valor correspondente a categoria desejada");
+                opcao = scan.nextInt();            
+            }catch(Exception e){
+                //System.out.println("Valor inadequado, tente novamente");
+                System.out.println("Valor inadequado, tente novamente");
+            }
+            if (opcao > j){
+                System.out.println("Valor inadequado, tente novamente");
+            }else{
+                break;
+            }
         }
-        System.out.println("Digite o valor correspondente a categoria desejada");
-        
+        return acessoCategoria.listaCategorias.get(opcao);
     }
 
+    public Subcategoria escolherSubcategorias(Categoria categoria){
+        int j = acessoCategoria.listaSubcategorias.size();
+        int opcao=0;
+        while(true){                
+            try {
+                listarSubcategorias();
+                System.out.println("Digite o valor correspondente a Subcategoria desejada");
+                opcao = scan.nextInt();
+            
+            }catch(Exception e){
+                System.out.println("Valor inadequado, tente novamente");
+            }
+            if (opcao > j){
+                System.out.println("Valor inadequado, tente novamente");
+            }else{
+                break;
+            }
+        }
+        return acessoCategoria.listaSubcategorias.get(opcao);
+    }
+    
     public void listaFornecedores(){
         for (Fornecedor a : this.listaFornecedores){
-            System.out.println("Nome: "+a.getNome()+"\rCidade: "+a.getCidade()+"\rCNPJ: "+a.getCnpj()+"/n");
+            int i = 1;
+            System.out.println(i + "Nome: "+a.getNome()+"\rCidade: "+a.getCidade()+"\rCNPJ: "+a.getCnpj()+"/n");
+            i++;
         }
     }
     public void cadastroFornecedor(String nome, String cnpj, String cidade){
@@ -53,7 +128,7 @@ class Cadastro{
         fornecedor.setCidade(cidade);
         listaFornecedores.add(fornecedor);        
     }
-    public void cadastroFornecedor(){
+    public void cadastroFornecedor2(){
         final String texto1=("nome do Fornecedor");
         final String texto2=("CNPJ do Fornecedor");
         final String texto3=("cidade do Fornecedor");
@@ -84,28 +159,31 @@ class Cadastro{
     }
     
     
-    
-    
-    
-    
-    
-    
     public void cadastrarProduto(){
         final String texto4=("nome do produto");
         final String texto5=("valor de entrada");
         final String texto6=("marca do produto");
         int x = 0;
+        String valor;
+        String marca;
         while (x==0){ 
             String testeNomePro = testeAtribuicaoCorreta(texto4);        
             x = controle.verificaProdutoNome(testeNomePro, listaProdutos);
-            String valor = (testeAtribuicaoCorreta(texto5));
-            String marca = (testeAtribuicaoCorreta(texto6));            
+            valor = (testeAtribuicaoCorreta(texto5));
+            marca = (testeAtribuicaoCorreta(texto6));            
             x++;
         }
+        
+        System.out.println("Digite o numero correspondente ao fornecedor:");
+        listaFornecedores();
+        int opcao = scan.nextInt();
+        Fornecedor fornecedorEscolhido = new Fornecedor();
+        fornecedorEscolhido = listaFornecedores.get(opcao-1);
+
+        System.out.println("Digite o numero correspondente ao Local:");
+
+
     }
-
-
-
     public String testeAtribuicaoCorreta(String textoAtribuicao){
         String info;
         while (true){
